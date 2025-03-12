@@ -17,11 +17,13 @@ import {
 import { useMemo } from 'react';
 import { Characters, Planet } from '../models/Character';
 import { State } from '../state/reducer';
+import { Loader } from './Loader';
 
-type CharacterListProps = {
+export type CharacterListProps = {
     characters: Characters;
     planets: Record<string, Planet>;
     favCharacters: State['favCharacters'];
+    isLoading?: boolean;
     showPagination?: boolean;
     pagination?: {
         currentPage: number;
@@ -37,6 +39,7 @@ export const CharacterList = ({
     favCharacters,
     pagination,
     showPagination = false,
+    isLoading = false,
     planets,
     onFavoriteToggle,
     onDetailClick,
@@ -46,13 +49,16 @@ export const CharacterList = ({
     const shouldShowDetails = !!onDetailClick;
 
     const displayCharacters = useMemo(() => {
-        return characters.map(({ id, uid, name, gender, homeworld }) => {
+        return characters.map(({ uid, name, gender, homeworld }) => {
             const isFav = favCharacters.includes(uid);
             return (
-                <TableRow key={id}>
+                <TableRow key={uid}>
                     <TableCell>
                         {shouldShowFavorite && (
-                            <IconButton onClick={() => onFavoriteToggle(uid)}>
+                            <IconButton
+                                data-testid={`btn-fav-${uid}`}
+                                onClick={() => onFavoriteToggle(uid)}
+                            >
                                 {isFav && <StarFilled />}
                                 {!isFav && <StarBorderOutlined />}
                             </IconButton>
@@ -63,7 +69,10 @@ export const CharacterList = ({
                     <TableCell>{planets[homeworld]?.name ?? ''}</TableCell>
                     {shouldShowDetails && (
                         <TableCell>
-                            <IconButton onClick={() => onDetailClick(uid)}>
+                            <IconButton
+                                data-testid={`btn-details-${uid}`}
+                                onClick={() => onDetailClick(uid)}
+                            >
                                 <ListAltIcon />
                             </IconButton>
                         </TableCell>
@@ -93,9 +102,23 @@ export const CharacterList = ({
                         {shouldShowDetails && <TableCell></TableCell>}
                     </TableRow>
                 </TableHead>
-                <TableBody>{displayCharacters}</TableBody>
+                <TableBody>
+                    {characters.length > 0 && !isLoading && displayCharacters}
+                    {isLoading && (
+                        <TableRow>
+                            <TableCell colSpan={4}>
+                                <Loader />
+                            </TableCell>
+                        </TableRow>
+                    )}
+                    {characters.length === 0 && !isLoading && (
+                        <TableRow>
+                            <TableCell colSpan={4}>No Records Found</TableCell>
+                        </TableRow>
+                    )}
+                </TableBody>
             </Table>
-            {showPagination && (
+            {showPagination && !isLoading && (
                 <Box
                     sx={{
                         display: 'flex',
@@ -104,11 +127,12 @@ export const CharacterList = ({
                     }}
                 >
                     <Pagination
+                        data-testid="character-list$pagination"
                         disabled={pagination?.totalPage === 0}
                         page={pagination?.currentPage ?? 0}
                         count={pagination?.totalPage ?? 0}
                         shape="rounded"
-                        onChange={(e, page) => onPageChange(page)}
+                        onChange={(_, page) => onPageChange(page)}
                     />
                 </Box>
             )}

@@ -13,39 +13,30 @@ import {
     Toolbar,
     Typography,
 } from '@mui/material';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ContentList } from '../components/ContentList';
 import { Loader } from '../components/Loader';
 import { useCharacterDetails } from '../hooks/useCharacterDetails';
-import { useStateContext } from '../state';
 
 export const Details = () => {
     const { id } = useParams<{ id: string }>();
-    const { state } = useStateContext();
+
     const {
         character,
-        films,
-        starShips,
         planets,
+        filmsNames,
+        starShipsNames,
+        isFavorite,
         onAddToFavorites,
         getCharacterDetails,
     } = useCharacterDetails();
 
     useEffect(() => {
         if (id) getCharacterDetails(id);
-    }, [getCharacterDetails, id]);
-
-    const filmsNames = useMemo(
-        () => films.map((film) => ({ name: film.title })),
-        [films]
-    );
-    const starShipsNames = useMemo(
-        () => starShips.map((starShip) => ({ name: starShip.name })),
-        [starShips]
-    );
-
-    const isFavorite = character && state.favCharacters.includes(character.id);
+        // need to initialize the state only once at the mount
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

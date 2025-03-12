@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Details should render without crashing 1`] = `
+<div>
+  <div
+    class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1ygil4i-MuiToolbar-root"
+  />
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg css-xsov46-MuiContainer-root"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root css-1j74uew-MuiPaper-root-MuiCard-root"
+      style="--Paper-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);"
+    >
+      <div
+        class="MuiBox-root css-1etdcjb"
+      >
+        <h1
+          class="MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"
+        >
+          Luke Skywalker
+        </h1>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1wvlkvr-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1sh91j5-MuiButton-startIcon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+              data-testid="StarBorderOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m22 9.24-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28z"
+              />
+            </svg>
+          </span>
+          Add/Remove Favorites
+        </button>
+      </div>
+      <div
+        class="MuiCardContent-root css-21mhzp-MuiCardContent-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-4z7gnm-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1fyyp8j-MuiGrid-root"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-1eoqm5i-MuiTypography-root"
+            >
+              Character Details
+            </h6>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-iaflhk-MuiPaper-root"
+              style="--Paper-shadow: none;"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-11nsb57-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-subtitle2 css-1x0mq5c-MuiTypography-root"
+                  >
+                    Hair Color
+                  </h6>
+                  <div
+                    class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16e8dsm-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+                    >
+                      blond
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-subtitle2 css-1x0mq5c-MuiTypography-root"
+                  >
+                    Eye Color
+                  </h6>
+                  <div
+                    class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16e8dsm-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+                    >
+                      blue
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-subtitle2 css-1x0mq5c-MuiTypography-root"
+                  >
+                    Gender
+                  </h6>
+                  <div
+                    class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16e8dsm-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+                    >
+                      male
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-subtitle2 css-1x0mq5c-MuiTypography-root"
+                  >
+                    Home Planet
+                  </h6>
+                  <div
+                    class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16e8dsm-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+                    >
+                      Tatooine
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1fyyp8j-MuiGrid-root"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom css-1eoqm5i-MuiTypography-root"
+            >
+              Related Content
+            </h6>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-iaflhk-MuiPaper-root"
+              style="--Paper-shadow: none;"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-1do8cl8-MuiTypography-root"
+              >
+                Films
+              </h6>
+              <ul
+                class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    >
+                      A New Hope
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    >
+                      The Empire Strikes Back
+                    </span>
+                  </div>
+                </li>
+              </ul>
+              <hr
+                class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
+              />
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-1do8cl8-MuiTypography-root"
+              >
+                StarShips
+              </h6>
+              <ul
+                class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    >
+                      Millennium Falcon
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    >
+                      X-wing
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -27,15 +27,16 @@ const updateFavCharacters = (favCharacters: string[], id: string) => {
     }
 };
 
-const logger = (reducer: (state: State, action: Action) => State) => {
-    return (state: State, action: Action): State => {
-        // console.log('Previous State:', state);
-        // console.log('Action:', action);
-        const nextState = reducer(state, action);
-        console.log('Next State:', nextState);
-        return nextState;
-    };
-};
+// Added for Testing
+// const logger = (reducer: (state: State, action: Action) => State) => {
+//     return (state: State, action: Action): State => {
+//         // console.log('Previous State:', state);
+//         // console.log('Action:', action);
+//         const nextState = reducer(state, action);
+//         console.log('Next State:', nextState);
+//         return nextState;
+//     };
+// };
 
 const baseReducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -66,4 +67,5 @@ const baseReducer = (state: State, action: Action): State => {
     }
 };
 
-export const reducer = logger(baseReducer);
+// export const reducer = logger(baseReducer);
+export const reducer = baseReducer;

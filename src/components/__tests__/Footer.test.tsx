@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import { App } from '../app/App';
+import { Footer } from '../Footer';
 
-describe('App', () => {
+describe('Footer', () => {
     it('should run without crashing', () => {
-        const { container } = render(<App />);
+        const { container } = render(<Footer />);
         expect(container).toMatchSnapshot();
     });
 });

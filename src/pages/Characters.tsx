@@ -1,11 +1,9 @@
 import { Box, Toolbar, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { styled } from 'styled-components';
 import { CharacterList } from '../components/CharacterList';
-import { Loader } from '../components/Loader';
 import { Search } from '../components/Search';
 import { useCharactersData } from '../hooks/useCharactersData';
-import { useDebounce } from '../hooks/useDebounce';
 
 const PageContainer = styled.div`
     padding: 24px;
@@ -22,35 +20,37 @@ const ResponsiveBox = styled(Box)`
 `;
 
 export const Characters = () => {
-    const [name, setName] = useState('');
-    const debouncedName = useDebounce(name, 300);
-
     const {
+        debounceQuery,
         isLoading,
         characters,
         currentPage,
         favCharacters,
         totalPage,
         planets,
+        onSearch,
+        initializeState,
         searchCharactersByName,
         onPageChange,
-        getCharactersData,
         onDetailClick,
         onFavoriteToggle,
     } = useCharactersData();
 
     useEffect(() => {
         (async () => {
-            if (debouncedName.length > 0) {
-                await searchCharactersByName(debouncedName);
-                return;
-            }
-            await getCharactersData(currentPage);
+            await initializeState();
         })();
-        // it is not necessary to add getCharactersData to the dependency array,
-        // this will also ensure that the search is triggered only when the currentPage & debouncedName changes
+        // need to initialize the state only once at the mount
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentPage, debouncedName]);
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            if (debounceQuery.length > 0) {
+                await searchCharactersByName(debounceQuery);
+            }
+        })();
+    }, [debounceQuery, searchCharactersByName]);
 
     return (
         <>
@@ -61,25 +61,23 @@ export const Characters = () => {
                     <Typography variant="h4" component="h1">
                         Star Wars Characters
                     </Typography>
-                    <Search onSearch={setName} />
+                    <Search onSearch={onSearch} />
                 </ResponsiveBox>
 
-                {isLoading && <Loader />}
-                {!isLoading && (
-                    <CharacterList
-                        planets={planets}
-                        characters={characters}
-                        favCharacters={favCharacters}
-                        pagination={{
-                            currentPage,
-                            totalPage,
-                        }}
-                        showPagination
-                        onFavoriteToggle={onFavoriteToggle}
-                        onDetailClick={onDetailClick}
-                        onPageChange={onPageChange}
-                    />
-                )}
+                <CharacterList
+                    isLoading={isLoading}
+                    planets={planets}
+                    characters={characters}
+                    favCharacters={favCharacters}
+                    pagination={{
+                        currentPage,
+                        totalPage,
+                    }}
+                    showPagination
+                    onFavoriteToggle={onFavoriteToggle}
+                    onDetailClick={onDetailClick}
+                    onPageChange={onPageChange}
+                />
             </PageContainer>
         </>
     );

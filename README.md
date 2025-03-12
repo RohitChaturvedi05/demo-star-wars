@@ -13,7 +13,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ### `npm test`
 
@@ -28,6 +28,7 @@ Builds the app for production to the `build` folder.\
 ```
 demo-star-wars/
 ├── src/
+│   ├── __mocks__/     # Mocks for testing
 │   ├── app/           # Root component
 │   ├── components/    # Reusable UI components
 │   ├── hooks/         # Custom React hooks
@@ -103,3 +104,9 @@ Dedicated page for managing favorite characters:
 -   Implement dark/light theme toggle
 -   Add keyboard navigation support
 -   Include accessibility improvements
+
+4. Testing
+
+-   Achieve at least 80-90% code coverage, which can be achieved by writing unit tests for all components
+-   Implement unit tests for all components
+-   Write E2E tests for key flows

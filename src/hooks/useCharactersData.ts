@@ -7,8 +7,12 @@ import { getCharactersSearch } from '../services/searchByCharacterName';
 import { extractPlanetId } from '../services/utils/extractPlanetId';
 import { useStateContext } from '../state';
 import { ActionType } from '../state/actions';
+import { useDebounce } from './useDebounce';
 
 export const useCharactersData = () => {
+    const [queryTerm, setQueryTerm] = useState('');
+    const debounceQuery = useDebounce(queryTerm, 300);
+
     const [isLoading, setLoading] = useState(false);
     const { state, dispatch } = useStateContext();
     const { planets } = state;
@@ -52,12 +56,14 @@ export const useCharactersData = () => {
 
     const searchCharactersByName = useCallback(
         async (name: string) => {
+            setLoading(true);
             const { characters } = await getCharactersSearch({
                 page: 1,
                 name,
             });
             dispatch({ type: ActionType.SET_CHARACTERS, payload: characters });
             dispatch({ type: ActionType.SET_TOTAL_PAGE, payload: 0 });
+            setLoading(false);
         },
         [dispatch]
     );
@@ -79,12 +85,26 @@ export const useCharactersData = () => {
         [navigate]
     );
 
-    const onPageChange = (page: number) => {
+    const onPageChange = async (page: number) => {
         dispatch({
             type: ActionType.SET_CURRENT_PAGE,
             payload: page,
         });
+        await getCharactersData(page);
     };
+
+    const onSearch = async (searchTerm: string) => {
+        setQueryTerm(searchTerm);
+        setLoading(true);
+        if (searchTerm.length === 0) {
+            await onPageChange(1);
+        }
+    };
+
+    const initializeState = useCallback(
+        () => getCharactersData(1),
+        [getCharactersData]
+    );
 
     const favorites = useMemo(() => {
         return state.characters.filter(({ uid }) =>
@@ -95,11 +115,15 @@ export const useCharactersData = () => {
     return {
         isLoading,
         favorites,
+        queryTerm,
+        debounceQuery,
         characters: state.characters,
         planets: state.planets,
         favCharacters: state.favCharacters,
         currentPage: state.currentPage,
         totalPage: state.totalPage,
+        initializeState,
+        onSearch,
         searchCharactersByName,
         onFavoriteToggle,
         onDetailClick,

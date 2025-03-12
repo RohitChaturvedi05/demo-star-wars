@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Character, Film, Starship } from '../models/Character';
 import { getCharacterById } from '../services/getCharacterById';
 import { getFilm } from '../services/getFilms';
@@ -49,11 +49,29 @@ export const useCharacterDetails = () => {
         },
         [dispatch]
     );
+
+    const filmsNames = useMemo(
+        () => films.map((film) => ({ name: film.title })),
+        [films]
+    );
+    const starShipsNames = useMemo(
+        () => starShips.map((starShip) => ({ name: starShip.name })),
+        [starShips]
+    );
+
+    const isFavorite = useMemo(
+        () => character && state.favCharacters.includes(character.id),
+        [character, state.favCharacters]
+    );
+
     return {
         films,
         starShips,
         planets,
         character,
+        filmsNames,
+        isFavorite,
+        starShipsNames,
         onAddToFavorites,
         getCharacterDetails,
     };
