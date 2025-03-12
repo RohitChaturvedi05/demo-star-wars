@@ -1,6 +1,6 @@
 # Demo Star Wars Application
 
-## Steps to setup the project
+## Steps to setup project
 
 -   Install dependencies using `npm install`
 
@@ -48,9 +48,6 @@ The application uses React's built-in state management solutions:
 
 -   React's built-in `useState` and `useReducer` hooks
 -   Context API for app-wide state management
--   Organized in `store` directory with separate contexts for:
-    -   Character data
-    -   Search filters
 
 ## Key Pages
 
@@ -58,9 +55,9 @@ The application uses React's built-in state management solutions:
 
 Main landing page that displays a grid of Star Wars characters with the following features:
 
+-   Responsive layout
 -   Character search with debounced input
 -   Pagination support for browsing all characters
--   Responsive grid layout
 -   Quick actions to favorite/view details for each character
 -   Displays character's Name, Gender & Home planet
 -   Loading state handling
@@ -69,6 +66,7 @@ Main landing page that displays a grid of Star Wars characters with the followin
 
 Detailed view of a single character showing:
 
+-   Responsive layout
 -   Character's personal information (name, hair color, eye color, gender)
 -   Home planet details
 -   List of films the character appears in
@@ -94,9 +92,6 @@ Dedicated page for managing favorite characters:
 
 -   Add sorting capabilities by various character attributes
 -   Implement advanced filtering options
--   Add character comparison functionality
--   Include more character details like species and vehicles
--   Add share functionality for character profiles
 
 3. User Experience
 
@@ -107,6 +102,5 @@ Dedicated page for managing favorite characters:
 
 4. Testing
 
--   Achieve at least 80-90% code coverage, which can be achieved by writing unit tests for all components
--   Implement unit tests for all components
+-   Achieve at least 85-90% code coverage, which can be achieved by writing unit tests for all components
 -   Write E2E tests for key flows
