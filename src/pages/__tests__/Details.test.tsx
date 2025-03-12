@@ -80,7 +80,7 @@ describe('pages/Details', () => {
 
     it('should add/remove from favorites', () => {
         renderWithState(<Details />);
-        const favBtn = screen.getByRole('button');
+        const favBtn = screen.getByRole('button', { name: /Favorites/ });
         expect(favBtn).toBeInTheDocument();
         fireEvent.click(favBtn);
         expect(

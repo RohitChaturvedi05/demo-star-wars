@@ -7,9 +7,7 @@ type ContentListProps = {
 
 export const ContentList = ({ label, data }: ContentListProps) => (
     <>
-        <Typography variant="h6" sx={{ mt: 2 }}>
-            {label}
-        </Typography>
+        <Typography variant="h6">{label}</Typography>
         <List>
             {data.map(({ name }) => (
                 <ListItem key={name}>

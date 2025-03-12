@@ -117,6 +117,60 @@ exports[`pages/Details should render without crashing 1`] = `
                       male
                     </span>
                   </div>
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1w0xhdl-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="btn-gender-edit"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
+                      data-testid="EditIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+                >
+                  <h6
+                    class="MuiTypography-root MuiTypography-subtitle2 css-1x0mq5c-MuiTypography-root"
+                  >
+                    Height
+                  </h6>
+                  <div
+                    class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16e8dsm-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
+                    >
+                      172
+                    </span>
+                  </div>
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1w0xhdl-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="btn-gender-edit"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
+                      data-testid="EditIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
+                      />
+                    </svg>
+                  </button>
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
@@ -148,11 +202,11 @@ exports[`pages/Details should render without crashing 1`] = `
               Related Content
             </h6>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-iaflhk-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-s5vmot-MuiPaper-root"
               style="--Paper-shadow: none;"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1do8cl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
               >
                 Films
               </h6>
@@ -190,7 +244,7 @@ exports[`pages/Details should render without crashing 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
               />
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1do8cl8-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
               >
                 StarShips
               </h6>

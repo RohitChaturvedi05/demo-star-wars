@@ -5,7 +5,6 @@ import {
     Button,
     Card,
     CardContent,
-    Chip,
     Container,
     Divider,
     Grid,
@@ -15,7 +14,10 @@ import {
 } from '@mui/material';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Chip } from '../components/Chip';
 import { ContentList } from '../components/ContentList';
+import { EditableChip } from '../components/EditableChip';
+import { Gender } from '../components/Gender';
 import { Loader } from '../components/Loader';
 import { useCharacterDetails } from '../hooks/useCharacterDetails';
 
@@ -96,55 +98,36 @@ export const Details = () => {
                                     >
                                         <Grid container spacing={2}>
                                             <Grid item xs={6}>
-                                                <Typography
-                                                    variant="subtitle2"
-                                                    color="text.secondary"
-                                                >
-                                                    Hair Color
-                                                </Typography>
                                                 <Chip
-                                                    label={character.hair_color}
-                                                    sx={{ mt: 1 }}
+                                                    value={character.hair_color}
+                                                    label="Hair Color"
                                                 />
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography
-                                                    variant="subtitle2"
-                                                    color="text.secondary"
-                                                >
-                                                    Eye Color
-                                                </Typography>
                                                 <Chip
-                                                    label={character.eye_color}
-                                                    sx={{ mt: 1 }}
+                                                    value={character.eye_color}
+                                                    label="Eye Color"
                                                 />
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography
-                                                    variant="subtitle2"
-                                                    color="text.secondary"
-                                                >
-                                                    Gender
-                                                </Typography>
-                                                <Chip
-                                                    label={character.gender}
-                                                    sx={{ mt: 1 }}
+                                                <Gender
+                                                    value={character.gender}
                                                 />
                                             </Grid>
                                             <Grid item xs={6}>
-                                                <Typography
-                                                    variant="subtitle2"
-                                                    color="text.secondary"
-                                                >
-                                                    Home Planet
-                                                </Typography>
+                                                <EditableChip
+                                                    label="Height"
+                                                    value={character.height}
+                                                />
+                                            </Grid>
+                                            <Grid item xs={6}>
                                                 <Chip
-                                                    label={
+                                                    value={
                                                         planets[
                                                             character.homeworld
                                                         ]?.name ?? 'Unknown'
                                                     }
-                                                    sx={{ mt: 1 }}
+                                                    label="Home Planet"
                                                 />
                                             </Grid>
                                         </Grid>
@@ -160,7 +143,10 @@ export const Details = () => {
                                     </Typography>
                                     <Paper
                                         elevation={0}
-                                        sx={{ p: 3, bgcolor: 'grey.50' }}
+                                        sx={{
+                                            p: 1,
+                                            bgcolor: 'grey.50',
+                                        }}
                                     >
                                         <ContentList
                                             label="Films"
