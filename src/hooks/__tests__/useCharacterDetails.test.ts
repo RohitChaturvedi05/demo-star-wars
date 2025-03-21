@@ -74,4 +74,17 @@ describe('hooks/useCharacterDetails', () => {
             payload: '1',
         });
     });
+
+    it('should call onGenderChange', () => {
+        const { result } = renderHook(() => useCharacterDetails());
+        const { onGenderChange } = result.current;
+        onGenderChange('male', '1');
+        expect(dispatch).toHaveBeenCalledWith({
+            type: 'SET_GENDER',
+            payload: {
+                id: '1',
+                value: 'male',
+            },
+        });
+    });
 });

@@ -3,7 +3,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { Chip, IconButton, MenuItem, Select, Typography } from '@mui/material';
 import { useState } from 'react';
 
-type Gender = 'male' | 'female' | 'others';
+export type Gender = 'male' | 'female' | 'others';
 type GenderProps = {
     label?: string;
     value: string;
@@ -44,6 +44,7 @@ export const Gender = ({
             {!editing && <Chip label={gender} sx={{ mt: 1 }} />}
             {editing && (
                 <Select
+                    data-testid="select$gender"
                     labelId="select-gender-label"
                     id="select-gender"
                     value={gender}
@@ -57,7 +58,7 @@ export const Gender = ({
 
             <IconButton
                 sx={{ mt: 1 }}
-                data-testid={`btn-gender-edit`}
+                data-testid="btn-gender-edit"
                 onClick={handleEditChange}
             >
                 {editing ? (

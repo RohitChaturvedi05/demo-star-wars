@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { Gender } from '../components/Gender';
 import { Character, Film, Starship } from '../models/Character';
 import { getCharacterById } from '../services/getCharacterById';
 import { getFilm } from '../services/getFilms';
@@ -8,6 +9,7 @@ import { useStateContext } from '../state';
 import { ActionType } from '../state/actions';
 
 export const useCharacterDetails = () => {
+    const [message, setMessage] = useState('');
     const { state, dispatch } = useStateContext();
     const { planets } = state;
     const [character, setCharacter] = useState<Character>();
@@ -64,7 +66,15 @@ export const useCharacterDetails = () => {
         [character, state.favCharacters]
     );
 
+    const onGenderChange = (value: Gender, id: string) => {
+        dispatch({ type: ActionType.SET_GENDER, payload: { value, id } });
+        setTimeout(() => {
+            setMessage('Gender Saved !!');
+        }, 2000);
+    };
+
     return {
+        message,
         films,
         starShips,
         planets,
@@ -72,6 +82,7 @@ export const useCharacterDetails = () => {
         filmsNames,
         isFavorite,
         starShipsNames,
+        onGenderChange,
         onAddToFavorites,
         getCharacterDetails,
     };

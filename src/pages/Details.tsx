@@ -21,15 +21,18 @@ import { Gender } from '../components/Gender';
 import { Loader } from '../components/Loader';
 import { useCharacterDetails } from '../hooks/useCharacterDetails';
 
+const testid = 'character-details';
 export const Details = () => {
     const { id } = useParams<{ id: string }>();
 
     const {
+        message,
         character,
         planets,
         filmsNames,
         starShipsNames,
         isFavorite,
+        onGenderChange,
         onAddToFavorites,
         getCharacterDetails,
     } = useCharacterDetails();
@@ -45,7 +48,8 @@ export const Details = () => {
             <Toolbar />
             {!character && <Loader />}
             {character && (
-                <Container maxWidth="lg" sx={{ py: 4 }}>
+                <Container maxWidth="lg" sx={{ py: 4 }} data-testid={testid}>
+                    {message && <span>{message}</span>}
                     <Card elevation={3}>
                         <Box
                             sx={{
@@ -57,10 +61,15 @@ export const Details = () => {
                                 alignItems: 'center',
                             }}
                         >
-                            <Typography variant="h4" component="h1">
+                            <Typography
+                                variant="h4"
+                                component="h1"
+                                data-testid={`${testid}$name`}
+                            >
                                 {character.name}
                             </Typography>
                             <Button
+                                data-testid={`${testid}$fav-btn`}
                                 variant="contained"
                                 color={isFavorite ? 'secondary' : 'primary'}
                                 onClick={() => onAddToFavorites(character.id)}
@@ -93,6 +102,7 @@ export const Details = () => {
                                         Character Details
                                     </Typography>
                                     <Paper
+                                        data-testid={`${testid}$details`}
                                         elevation={0}
                                         sx={{ p: 3, bgcolor: 'grey.50' }}
                                     >
@@ -112,6 +122,14 @@ export const Details = () => {
                                             <Grid item xs={6}>
                                                 <Gender
                                                     value={character.gender}
+                                                    onGenderChange={(
+                                                        value: Gender
+                                                    ) =>
+                                                        onGenderChange(
+                                                            value,
+                                                            character.id
+                                                        )
+                                                    }
                                                 />
                                             </Grid>
                                             <Grid item xs={6}>
@@ -149,11 +167,13 @@ export const Details = () => {
                                         }}
                                     >
                                         <ContentList
+                                            data-testid={`${testid}$films`}
                                             label="Films"
                                             data={filmsNames}
                                         />
                                         <Divider sx={{ my: 2 }} />
                                         <ContentList
+                                            data-testid={`${testid}$star-ships`}
                                             label="StarShips"
                                             data={starShipsNames}
                                         />

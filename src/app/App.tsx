@@ -9,6 +9,7 @@ import { Sidebar } from '../components/SideBar';
 import { AppRoutes } from '../routes';
 import { MENU_ITEMS } from '../routes/constants';
 import { StateProvider } from '../state';
+import ErrorBoundary from './ErrorBoundary';
 
 const theme = createTheme();
 
@@ -35,25 +36,27 @@ export const App = () => {
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <StateProvider>
-                <CssBaseline />
-                <Container>
-                    <Header onDrawerToggle={handleDrawerToggle} />
-                    <CentralContainer>
-                        <Sidebar
-                            onMenuItemClick={(item) => navigate(item.path)}
-                            menuItems={MENU_ITEMS}
-                            open={open}
-                            onDrawerToggle={handleDrawerToggle}
-                        />
-                        <Main>
-                            <AppRoutes />
-                        </Main>
-                    </CentralContainer>
-                    <Footer />
-                </Container>
-            </StateProvider>
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider theme={theme}>
+                <StateProvider>
+                    <CssBaseline />
+                    <Container>
+                        <Header onDrawerToggle={handleDrawerToggle} />
+                        <CentralContainer>
+                            <Sidebar
+                                onMenuItemClick={(item) => navigate(item.path)}
+                                menuItems={MENU_ITEMS}
+                                open={open}
+                                onDrawerToggle={handleDrawerToggle}
+                            />
+                            <Main>
+                                <AppRoutes />
+                            </Main>
+                        </CentralContainer>
+                        <Footer />
+                    </Container>
+                </StateProvider>
+            </ThemeProvider>
+        </ErrorBoundary>
     );
 };

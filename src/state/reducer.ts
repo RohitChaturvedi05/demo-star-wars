@@ -1,4 +1,5 @@
-import { Characters, Planet } from '../models/Character';
+import { Gender } from '../components/Gender';
+import { Character, Characters, Planet } from '../models/Character';
 import { Action, ActionType } from './actions';
 
 export interface State {
@@ -38,6 +39,32 @@ const updateFavCharacters = (favCharacters: string[], id: string) => {
 //     };
 // };
 
+const updateGender = (
+    state: State,
+    payload: { value: Gender; id: string }
+): State => {
+    const updatedChars: Characters = state.characters.reduce(
+        (acc, item: Character) => {
+            if (item.id === payload.id) {
+                const updatedRec: Character = {
+                    ...item,
+                    gender: payload.value,
+                };
+                acc.push(updatedRec);
+            } else {
+                acc.push(item);
+            }
+            return acc;
+        },
+        [] as Characters
+    );
+
+    return {
+        ...state,
+        characters: [...updatedChars],
+    };
+};
+
 const baseReducer = (state: State, action: Action): State => {
     switch (action.type) {
         case ActionType.SET_CHARACTERS:
@@ -46,6 +73,8 @@ const baseReducer = (state: State, action: Action): State => {
             return { ...state, totalPage: action.payload };
         case ActionType.SET_CURRENT_PAGE:
             return { ...state, currentPage: action.payload };
+        case ActionType.SET_GENDER:
+            return updateGender(state, action.payload);
         case ActionType.SET_PLANETS:
             return {
                 ...state,

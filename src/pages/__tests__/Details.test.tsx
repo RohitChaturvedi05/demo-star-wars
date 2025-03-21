@@ -22,6 +22,7 @@ jest.mock('react-router-dom', () => ({
 jest.mock('../../hooks/useCharacterDetails');
 
 const MockUseCharactersDetailsData = {
+    message: '',
     character: mockCharacterDetails,
     films: [...mockFilms],
     starShips: mockStarship,
@@ -33,6 +34,7 @@ const MockUseCharactersDetailsData = {
     ],
     isFavorite: false,
     onAddToFavorites: jest.fn(),
+    onGenderChange: jest.fn(),
     getCharacterDetails: jest.fn(),
 };
 
@@ -63,6 +65,7 @@ describe('pages/Details', () => {
         ).toBeInTheDocument();
         expect(screen.getByText('Tatooine')).toBeInTheDocument();
     });
+
     it('should render list of films', () => {
         renderWithState(<Details />);
         expect(screen.getByText('Films')).toBeInTheDocument();

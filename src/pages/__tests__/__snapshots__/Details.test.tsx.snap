@@ -7,6 +7,7 @@ exports[`pages/Details should render without crashing 1`] = `
   />
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg css-xsov46-MuiContainer-root"
+    data-testid="character-details"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root css-1j74uew-MuiPaper-root-MuiCard-root"
@@ -17,11 +18,13 @@ exports[`pages/Details should render without crashing 1`] = `
       >
         <h1
           class="MuiTypography-root MuiTypography-h4 css-f84ov1-MuiTypography-root"
+          data-testid="character-details$name"
         >
           Luke Skywalker
         </h1>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1wvlkvr-MuiButtonBase-root-MuiButton-root"
+          data-testid="character-details$fav-btn"
           tabindex="0"
           type="button"
         >
@@ -59,6 +62,7 @@ exports[`pages/Details should render without crashing 1`] = `
             </h6>
             <div
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-iaflhk-MuiPaper-root"
+              data-testid="character-details$details"
               style="--Paper-shadow: none;"
             >
               <div
@@ -205,79 +209,87 @@ exports[`pages/Details should render without crashing 1`] = `
               class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-s5vmot-MuiPaper-root"
               style="--Paper-shadow: none;"
             >
-              <h6
-                class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
+              <div
+                data-testid="character-details$films"
               >
-                Films
-              </h6>
-              <ul
-                class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
-              >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
                 >
-                  <div
-                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
-                  >
-                    <span
-                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
-                    >
-                      A New Hope
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                  Films
+                </h6>
+                <ul
+                  class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
                 >
-                  <div
-                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    <div
+                      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
                     >
-                      The Empire Strikes Back
-                    </span>
-                  </div>
-                </li>
-              </ul>
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                      >
+                        A New Hope
+                      </span>
+                    </div>
+                  </li>
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                  >
+                    <div
+                      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                      >
+                        The Empire Strikes Back
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
               <hr
                 class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
               />
-              <h6
-                class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
+              <div
+                data-testid="character-details$star-ships"
               >
-                StarShips
-              </h6>
-              <ul
-                class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
-              >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
                 >
-                  <div
-                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
-                  >
-                    <span
-                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
-                    >
-                      Millennium Falcon
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                  StarShips
+                </h6>
+                <ul
+                  class="MuiList-root MuiList-padding css-b7dj7n-MuiList-root"
                 >
-                  <div
-                    class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                    <div
+                      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
                     >
-                      X-wing
-                    </span>
-                  </div>
-                </li>
-              </ul>
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                      >
+                        Millennium Falcon
+                      </span>
+                    </div>
+                  </li>
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-cfd5wn-MuiListItem-root"
+                  >
+                    <div
+                      class="MuiListItemText-root css-cfq8qh-MuiListItemText-root"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-rizt0-MuiTypography-root"
+                      >
+                        X-wing
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

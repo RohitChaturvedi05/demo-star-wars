@@ -91,9 +91,9 @@ export const CharacterList = ({
     ]);
 
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                <TableHead>
+        <TableContainer component={Paper} data-testid="character-list">
+            <Table data-testid="character-list$table">
+                <TableHead data-testid="character-list$head">
                     <TableRow>
                         {shouldShowFavorite && <TableCell></TableCell>}
                         <TableCell>Name</TableCell>
@@ -102,7 +102,7 @@ export const CharacterList = ({
                         {shouldShowDetails && <TableCell></TableCell>}
                     </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody data-testid="character-list$body">
                     {characters.length > 0 && !isLoading && displayCharacters}
                     {isLoading && (
                         <TableRow>
@@ -113,7 +113,12 @@ export const CharacterList = ({
                     )}
                     {characters.length === 0 && !isLoading && (
                         <TableRow>
-                            <TableCell colSpan={4}>No Records Found</TableCell>
+                            <TableCell
+                                data-testid="character-list$no-records"
+                                colSpan={4}
+                            >
+                                No Records Found
+                            </TableCell>
                         </TableRow>
                     )}
                 </TableBody>

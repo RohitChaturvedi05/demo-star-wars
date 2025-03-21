@@ -5,8 +5,8 @@ type ContentListProps = {
     data: { name: string }[];
 };
 
-export const ContentList = ({ label, data }: ContentListProps) => (
-    <>
+export const ContentList = ({ label, data, ...rest }: ContentListProps) => (
+    <div {...rest}>
         <Typography variant="h6">{label}</Typography>
         <List>
             {data.map(({ name }) => (
@@ -16,10 +16,10 @@ export const ContentList = ({ label, data }: ContentListProps) => (
             ))}
 
             {data.length === 0 && (
-                <ListItem>
+                <ListItem data-testid="no-records-found">
                     <Typography>No Records Found</Typography>
                 </ListItem>
             )}
         </List>
-    </>
+    </div>
 );

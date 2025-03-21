@@ -18,9 +18,10 @@ export const Search = ({ onSearch }: SearchProps) => {
             }}
         >
             <InputBase
+                data-testid="search-box"
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search"
-                inputProps={{ 'aria-label': 'search google maps' }}
+                inputProps={{ 'aria-label': 'search' }}
                 onChange={(event) => onSearch(event.target.value)}
             />
             <IconButton type="button" sx={{ p: '10px' }} aria-label="search">

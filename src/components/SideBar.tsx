@@ -47,6 +47,7 @@ export const Sidebar = ({
 
     return (
         <StyledDrawer
+            data-testid="sidebar"
             open={open}
             variant={isMobile ? 'temporary' : 'permanent'}
             anchor="left"
@@ -57,6 +58,7 @@ export const Sidebar = ({
             <List>
                 {menuItems.map((item) => (
                     <ListItem
+                        data-testid={`sidebar$${item.text}`}
                         style={{ cursor: 'pointer' }}
                         itemType="button"
                         key={item.text}
